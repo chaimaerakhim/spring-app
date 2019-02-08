@@ -61,4 +61,4 @@ stage("Acceptance test") {
 }
 }
  }
-}
+
