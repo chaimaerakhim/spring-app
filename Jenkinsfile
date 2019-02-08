@@ -39,7 +39,7 @@ stage("Docker build") {
 }
 stage("Docker push") {
      steps {
-   sh "docker login -u chaimaarakhime@gmail.com -p ChaimaeServer"
+   sh "docker login -u chaimae9 -p ChaimaeServer"
 sh "docker push crakhim/spring-app"
      }
 }
