@@ -34,19 +34,19 @@ stage("Package") {
 stage("Docker build") {
      steps {
       
-          sh "docker build -t crakhim/spring-app ."
+          sh "docker build -t chaimae9/spring-app ."
      }
 }
 stage("Docker push") {
      steps {
    sh "docker login -u chaimae9 -p ChaimaeServer"
-sh "docker push crakhim/spring-app"
+sh "docker push chaimae9/spring-app"
      }
 }
 stage("Deploy to staging") {
      steps {
  
-          sh "docker run -d --rm -p 8765:8080 --name springappcontainer crakhim/spring-app"
+          sh "docker run -d --rm -p 8765:8080 --name springappcontainer chaimae9/spring-app"
      }
 }
 stage("Acceptance test") {
