@@ -58,9 +58,9 @@ stage("Acceptance test") {
      }
   post {
      always {
-          sh "docker stop springappcontainer"
+         # sh "docker stop springappcontainer"
      }
 }
 }
- 
+
 
