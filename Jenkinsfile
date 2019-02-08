@@ -51,7 +51,7 @@ stage("Deploy to staging") {
 }
 stage("Acceptance test") {
      steps {
-          sleep 10
+          sleep 60
           sh "./acceptance_test.sh"
      }
 }
