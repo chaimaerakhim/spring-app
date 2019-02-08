@@ -23,5 +23,42 @@ stage("Code coverage") {
           sh "./gradlew jacocoTestCoverageVerification"
      }
 }
+
+stage("Package") {
+     steps {
+          sh "./gradlew build"
+     }
+}
+stage("Docker build") {
+     steps {
+      
+          sh "docker build -t crakhim/spring-app ."
+     }
+}
+stage("Docker push") {
+     steps {
+   sh "docker login -u chaimaarakhime@gmail.com -p ChaimaeServer"
+sh "docker push crakhim/spring-app"
+     }
+}
+stage("Deploy to staging") {
+     steps {
+ 
+          sh "docker run -d --rm -p 8765:8080 --name springappcontainer crakhim/spring-app"
+     }
+}
+stage("Acceptance test") {
+     steps {
+          sleep 60
+          sh "./acceptance_test.sh"
+     }
+}
+     }
+  post {
+     always {
+          sh "docker stop springappcontainer"
+     }
+}
+}
  }
 }
