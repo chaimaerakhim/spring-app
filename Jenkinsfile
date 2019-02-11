@@ -52,7 +52,7 @@ stage("Deploy to staging") {
 stage("Acceptance test") {
      steps {
           sleep 60
-          sh "echo acceptance test :D"
+          sh "echo acceptance test :D test for git merge"
      }
 }
      }
