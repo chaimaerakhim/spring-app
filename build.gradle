@@ -14,13 +14,17 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: "jacoco"
+apply plugin: "maven"
 
 group = 'com.crakhim.sqli'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
+     maven{
 	mavenCentral()
+        url http://10.242.2.246:8081/repository/snapshots-spring/
+}
 }
 
 dependencies {
